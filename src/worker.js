@@ -123,7 +123,12 @@ export default {
     const url = new URL(request.url);
     if (url.pathname.startsWith("/api/")) {
       if (request.method !== "GET") return err(405, "method_not_allowed", "GET only.", {}, { allow: "GET" });
-      if (url.pathname === "/api/point") return handlePoint(url, request, env, ctx);
+      if (url.pathname === "/api/point") {
+        const res = await handlePoint(url, request, env, ctx);
+        // Optional partner link (public/partner.js), set per deploy and never stored in the caches.
+        if (res.status === 200) res.headers.set("x-scout-ctl", env.CHECK_THE_LAND_CTA === "on" ? "on" : "off");
+        return res;
+      }
       if (url.pathname === "/api/geocode") return handleGeocode(url, request, env);
       if (url.pathname === "/api/health") return json({ ok: true, key_set: Boolean(env.ISOPLETH_KEY), fields: FIELDS.length }, 200, { "cache-control": "no-store" });
       return err(404, "not_found", "Unknown endpoint.");

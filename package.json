@@ -19,7 +19,8 @@
       "ISOPLETH_KEY": {
         "description": "Your Isopleth API key. Get one free at https://isopleth.dev/signup/?utm_source=sitescout&utm_medium=referral&utm_campaign=deploy"
       },
-      "POINT_LIMIT_PER_MIN": { "description": "New points per visitor per minute. Shown in the rate-limit message; keep it in step with POINT_LIMITER." }
+      "POINT_LIMIT_PER_MIN": { "description": "New points per visitor per minute. Shown in the rate-limit message; keep it in step with POINT_LIMITER." },
+      "CHECK_THE_LAND_CTA": { "description": "\"on\" shows a link to Check the Land's buyer's report under the facts. Leave \"off\" for your own app." }
     }
   },
   "devDependencies": {

@@ -24,7 +24,8 @@
   // Optional global cache of point results (7 days). On deploy, Wrangler creates the namespace for you.
   // Remove this block to rely on the per-colo edge cache only.
   "kv_namespaces": [{ "binding": "CACHE" }],
-  "vars": { "POINT_LIMIT_PER_MIN": "6" },
+  // CHECK_THE_LAND_CTA: "on" shows the optional Check the Land link under the facts (public/partner.js).
+  "vars": { "POINT_LIMIT_PER_MIN": "6", "CHECK_THE_LAND_CTA": "off" },
   "observability": { "enabled": true, "head_sampling_rate": 0.1 }
   // Secret, set with: npx wrangler secret put ISOPLETH_KEY
 }
