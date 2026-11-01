@@ -1,0 +1,30 @@
+// Site Scout: one Worker + static assets, all on the Cloudflare free tier.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "isopleth-site-scout",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // Only /api/* runs the Worker. Everything else is served as a static asset, which is free and doesn't count
+    // toward the 100k requests/day Worker limit.
+    "run_worker_first": ["/api/*"],
+    "not_found_handling": "single-page-application"
+  },
+  // Per-IP limits (keyed on cf-connecting-ip) plus one global ceiling. Cache hits are never limited.
+  "ratelimits": [
+    { "name": "POINT_LIMITER", "namespace_id": "4101", "simple": { "limit": 6, "period": 60 } },
+    { "name": "BURST_LIMITER", "namespace_id": "4102", "simple": { "limit": 3, "period": 10 } },
+    { "name": "GEOCODE_LIMITER", "namespace_id": "4103", "simple": { "limit": 20, "period": 60 } },
+    // All visitors together (key "all"): caps new points per minute per Cloudflare location.
+    { "name": "GLOBAL_LIMITER", "namespace_id": "4104", "simple": { "limit": 15, "period": 60 } }
+  ],
+  // Optional global cache of point results (7 days). On deploy, Wrangler creates the namespace for you.
+  // Remove this block to rely on the per-colo edge cache only.
+  "kv_namespaces": [{ "binding": "CACHE" }],
+  "vars": { "POINT_LIMIT_PER_MIN": "6" },
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 }
+  // Secret, set with: npx wrangler secret put ISOPLETH_KEY
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Site Scout · Any U.S. point, every public fact · Isopleth API</title>
+<meta name="description" content="Tap anywhere in the U.S. for flood zone, soils, slope, wind and solar resource, grid distance, wildfire, wetlands and drought, each with its source. One Isopleth API call. Open source.">
+<meta name="theme-color" content="#04080b">
+<link rel="canonical" href="https://scout.isopleth.dev/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Site Scout: every public fact about any U.S. point">
+<meta property="og:description" content="Flood, soils, grid, wind, solar, wildfire and more for any U.S. point, with sources. One Isopleth API call. Fork it.">
+<meta property="og:url" content="https://scout.isopleth.dev/">
+<meta property="og:image" content="https://scout.isopleth.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://basemap.nationalmap.gov" crossorigin>
+<link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/app.css">
+<script src="/analytics.js" defer></script>
+<script src="/vendor/leaflet/leaflet.js" defer></script>
+<script src="/app.js" type="module"></script>
+</head>
+<body>
+<div id="map" role="application" aria-label="Map of the United States. Click or tap a point to look it up."></div>
+
+<header class="bar">
+  <a class="brand" href="/" aria-label="Site Scout home">
+    <svg class="mark" viewBox="0 0 512 512" aria-hidden="true"><defs><mask id="bm" maskUnits="userSpaceOnUse" x="-60" y="-60" width="460" height="460"><rect x="-60" y="-60" width="460" height="460" fill="#fff"/><path d="M-20 70 C60 112 104 156 140 196 C180 242 206 252 238 236 L380 150" fill="none" stroke="#000" stroke-width="20"/><path d="M206 -30 C190 30 168 80 150 116 C140 136 128 150 112 160" fill="none" stroke="#000" stroke-width="17"/><ellipse cx="236" cy="140" rx="46" ry="37" transform="rotate(-31 234 146)" fill="none" stroke="#000" stroke-width="20"/></mask><clipPath id="bmc"><path d="M-20 70 C60 112 104 156 140 196 C180 242 206 252 238 236 L380 150 L380 -60 L-20 -60 Z"/></clipPath></defs><g transform="translate(256 256) scale(1.5) translate(-161 -167)"><g mask="url(#bm)"><path d="M184.5 27.5Q224 4 246.2 44.3L297.8 137.7Q320 178 284.9 207.7L175.1 300.3Q140 330 113.3 292.5L28.7 173.5Q2 136 41.5 112.5Z" fill="#2b9e93"/><path d="M184.5 27.5Q224 4 246.2 44.3L297.8 137.7Q320 178 284.9 207.7L175.1 300.3Q140 330 113.3 292.5L28.7 173.5Q2 136 41.5 112.5Z" fill="#36e2c4" clip-path="url(#bmc)"/></g></g></svg>
+
+    <span class="name">Site Scout</span><span class="by">by Isopleth</span>
+  </a>
+  <form id="search" class="search" role="search" autocomplete="off">
+    <label for="q" class="sr">Search an address or paste coordinates</label>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="q" name="q" type="search" inputmode="search" enterkeyhint="search" spellcheck="false" placeholder="Address or lat, lng" maxlength="200">
+    <button type="submit" class="go" aria-label="Look up">Go</button>
+  </form>
+  <nav class="actions" aria-label="Isopleth">
+    <a id="fork" class="btn ghost" href="https://github.com/slurpsyrup/isopleth-site-scout" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>Fork on GitHub</span></a>
+    <a id="signup" class="btn" href="https://isopleth.dev/signup/?utm_source=sitescout&amp;utm_medium=referral&amp;utm_campaign=showcase" rel="noopener"><span class="long">Get your free API key</span><span class="short">Free API key</span></a>
+  </nav>
+</header>
+
+<aside id="panel" class="panel" data-state="intro" aria-label="Facts for the selected point">
+  <button id="grip" class="grip" type="button" aria-label="Expand or collapse the panel" aria-expanded="false"><span></span></button>
+  <div class="scroll" id="scroll">
+    <section id="intro" class="intro">
+      <p class="eyebrow"><span class="dot"></span>Live on the Isopleth API</p>
+      <h1>Every public fact about any U.S.&nbsp;point.</h1>
+      <p class="lede">Tap the map, search an address or paste coordinates. One API call returns flood, soils, terrain, grid, wind, solar and hazard data from 25+ federal sources, each with its source.</p>
+      <p class="try">Try these</p>
+      <!-- Pre-rendered from PRESETS in fields.js so the panel does not jump on load; app.js re-renders if they differ. -->
+      <div class="presets" id="presets">
+        <button class="preset" type="button" data-id="wtx-wind"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"></path></svg></span><span><b>West Texas wind</b><small>Howard County, TX</small></span><span class="arr" aria-hidden="true">→</span></button>
+        <button class="preset" type="button" data-id="nv-solar"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span><span><b>Nevada solar</b><small>Dry Lake Valley, NV</small></span><span class="arr" aria-hidden="true">→</span></button>
+        <button class="preset" type="button" data-id="va-dc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="7" rx="1.5"></rect><rect x="4" y="14" width="16" height="7" rx="1.5"></rect><path d="M8 6.5h.01M8 17.5h.01"></path></svg></span><span><b>Virginia data center alley</b><small>Ashburn, VA</small></span><span class="arr" aria-hidden="true">→</span></button>
+        <button class="preset" type="button" data-id="ia-farm"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15M5 19l7-7"></path></svg></span><span><b>Iowa farmland</b><small>Story County, IA</small></span><span class="arr" aria-hidden="true">→</span></button>
+      </div>
+      <p class="fine">Open source (MIT). <a href="https://github.com/slurpsyrup/isopleth-site-scout#deploy-your-own" rel="noopener">Deploy your own</a> on Cloudflare's free tier in about five minutes.</p>
+    </section>
+
+    <section id="result" class="result" hidden>
+      <div class="rhead">
+        <div>
+          <p class="place" id="place">—</p>
+          <p class="coord"><span id="coord"></span> <span class="cache" id="cache"></span></p>
+        </div>
+        <div class="racts">
+          <button id="share" class="icon" type="button" aria-label="Copy a link to this point"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+          <button id="close" class="icon" type="button" aria-label="Back to start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        </div>
+      </div>
+
+      <button id="apitoggle" class="apitoggle" type="button" role="switch" aria-checked="false" aria-controls="api">
+        <span class="sw" aria-hidden="true"><span></span></span>
+        <span class="lbl"><b>See the API call</b><small>cURL · Python · Node · raw JSON</small></span>
+        <code>POST /v1/fetch</code>
+      </button>
+      <div id="api" class="api" hidden>
+        <div class="tabs" role="tablist" aria-label="Request format">
+          <button role="tab" type="button" data-tab="curl" aria-selected="true">cURL</button>
+          <button role="tab" type="button" data-tab="python" aria-selected="false">Python</button>
+          <button role="tab" type="button" data-tab="node" aria-selected="false">Node</button>
+          <button role="tab" type="button" data-tab="json" aria-selected="false">Response</button>
+          <button id="copy" class="copy" type="button">Copy</button>
+        </div>
+        <pre id="code" tabindex="0"><code></code></pre>
+        <p class="fine">Your key goes in <code>$ISOPLETH_KEY</code>. This page calls the same endpoint through a small Cloudflare Worker that keeps its key server-side.</p>
+      </div>
+
+      <div id="headlines" class="headlines"></div>
+      <div id="cards" class="cards"></div>
+      <p class="fine foot" id="foot"></p>
+    </section>
+
+    <section id="loading" class="loading" hidden aria-busy="true">
+      <p class="place">Scouting this point<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+      <p class="coord" id="lcoord"></p>
+      <p class="status"><span id="lsrc">Reading FEMA flood maps</span> · <span id="ltime">0.0 s</span></p>
+      <div class="skel"><i></i><i></i><i></i><i></i></div>
+      <div class="skel rows"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="fine">A new point takes 5 to 20 seconds while Isopleth reads 25+ live federal sources. Points someone already looked up come back instantly.</p>
+    </section>
+
+    <section id="error" class="error" hidden role="alert">
+      <p class="place" id="etitle">Something went wrong</p>
+      <p id="emsg"></p>
+      <p class="fine" id="ewait"></p>
+      <button id="eback" class="btn ghost" type="button">Back to start</button>
+    </section>
+  </div>
+</aside>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div class="layers" id="layers" role="group" aria-label="Basemap">
+  <button type="button" data-layer="topo" aria-pressed="true">Topo</button>
+  <button type="button" data-layer="imagery" aria-pressed="false">Satellite</button>
+</div>
+<noscript><p class="nojs">Site Scout needs JavaScript for the map. The API it shows is documented at <a href="https://isopleth.dev/docs/">isopleth.dev/docs</a>.</p></noscript>
+</body>
+</html>

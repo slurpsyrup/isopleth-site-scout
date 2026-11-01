@@ -1,0 +1,1777 @@
+[
+{
+"name": "elevation",
+"source": "USGS_3DEP",
+"api_available": true
+},
+{
+"name": "slope_degrees",
+"source": "USGS_3DEP",
+"api_available": true
+},
+{
+"name": "aspect_degrees",
+"source": "USGS_3DEP",
+"api_available": true
+},
+{
+"name": "aspect_cardinal",
+"source": "USGS_3DEP",
+"api_available": true
+},
+{
+"name": "soil_drainage_class",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_map_unit_name",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_shrink_swell_class",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "prime_farmland_classification",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_ponding_frequency_class",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_hydrologic_group",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_restrictive_layer_depth_cm",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_restrictive_layer_kind",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_available_water_capacity",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "soil_erodibility_k_factor",
+"source": "USDA_SSURGO",
+"api_available": true
+},
+{
+"name": "nfhl_flood_zone",
+"source": "FEMA_NFHL",
+"api_available": true
+},
+{
+"name": "within_floodplain_polygon",
+"source": "FEMA_NFHL",
+"api_available": true
+},
+{
+"name": "flood_zone_subtype",
+"source": "FEMA_NFHL",
+"api_available": true
+},
+{
+"name": "coastal_high_hazard",
+"source": "FEMA_NFHL",
+"api_available": true
+},
+{
+"name": "fema_base_flood_elevation",
+"source": "FEMA_NFHL",
+"api_available": true
+},
+{
+"name": "intersects_wetland",
+"source": "USFWS_NWI",
+"api_available": true
+},
+{
+"name": "wetland_type",
+"source": "USFWS_NWI",
+"api_available": true
+},
+{
+"name": "wetland_subtype",
+"source": "USFWS_NWI",
+"api_available": true
+},
+{
+"name": "wetland_acres",
+"source": "USFWS_NWI",
+"api_available": true
+},
+{
+"name": "nearest_wetland_distance_m",
+"source": "USFWS_NWI",
+"api_available": true
+},
+{
+"name": "wetlands_within_100m_count",
+"source": "USFWS_NWI",
+"api_available": true
+},
+{
+"name": "wetlands_within_500m_count",
+"source": "USFWS_NWI",
+"api_available": true
+},
+{
+"name": "intersects_nhd_area",
+"source": "USGS_NHDPLUS_HR",
+"api_available": true
+},
+{
+"name": "nearest_waterbody_name",
+"source": "USGS_NHDPLUS_HR",
+"api_available": true
+},
+{
+"name": "nearest_flowline_name",
+"source": "USGS_NHDPLUS_HR",
+"api_available": true
+},
+{
+"name": "surface_water_permanence_pct",
+"source": "JRC_GSW",
+"api_available": true
+},
+{
+"name": "seismic_design_category",
+"source": "USGS_DESIGNMAPS_ASCE7",
+"api_available": true
+},
+{
+"name": "design_wind_speed_mph",
+"source": "NOAA_ASCE_WIND_VECTORS",
+"api_available": false
+},
+{
+"name": "wildfire_annual_frequency",
+"source": "FEMA_NRI",
+"api_available": true
+},
+{
+"name": "tornado_annual_frequency",
+"source": "FEMA_NRI",
+"api_available": true
+},
+{
+"name": "hail_annual_frequency",
+"source": "FEMA_NRI",
+"api_available": true
+},
+{
+"name": "lightning_annual_flash_days",
+"source": "FEMA_NRI",
+"api_available": true
+},
+{
+"name": "nearest_dam_distance_m",
+"source": "USACE_NID",
+"api_available": true
+},
+{
+"name": "nearest_dam_hazard_potential",
+"source": "USACE_NID",
+"api_available": true
+},
+{
+"name": "high_hazard_dams_within_10km",
+"source": "USACE_NID",
+"api_available": true
+},
+{
+"name": "in_karst_area",
+"source": "USGS_KARST",
+"api_available": true
+},
+{
+"name": "karst_type",
+"source": "USGS_KARST",
+"api_available": true
+},
+{
+"name": "karst_exposure_class",
+"source": "USGS_KARST",
+"api_available": true
+},
+{
+"name": "fire_hazard_severity_zone_class",
+"source": "CALFIRE_FHSZ",
+"api_available": true
+},
+{
+"name": "fire_hazard_responsibility_area",
+"source": "CALFIRE_FHSZ",
+"api_available": true
+},
+{
+"name": "nearest_fire_perimeter_distance_m",
+"source": "CALFIRE_FRAP",
+"api_available": true
+},
+{
+"name": "most_recent_burn_year",
+"source": "CALFIRE_FRAP",
+"api_available": true
+},
+{
+"name": "tract_geoid",
+"source": "CENSUS_GEOCODING",
+"api_available": true
+},
+{
+"name": "political_county",
+"source": "CENSUS_GEOCODING",
+"api_available": true
+},
+{
+"name": "political_region",
+"source": "CENSUS_GEOCODING",
+"api_available": true
+},
+{
+"name": "political_locality",
+"source": "CENSUS_GEOCODING",
+"api_available": true
+},
+{
+"name": "cdl_class",
+"source": "USDA_CDL",
+"api_available": true
+},
+{
+"name": "is_cultivated",
+"source": "USDA_CDL",
+"api_available": true
+},
+{
+"name": "dominant_crop_5y",
+"source": "USDA_CDL",
+"api_available": true
+},
+{
+"name": "lcms_class",
+"source": "USFS_LCMS",
+"api_available": true
+},
+{
+"name": "land_use_class",
+"source": "USFS_LCMS",
+"api_available": true
+},
+{
+"name": "tree_canopy_pct",
+"source": "USFS_NLCD_TCC",
+"api_available": true
+},
+{
+"name": "nearest_hospital_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_hospital_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_fire_station_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_fire_station_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_school_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_school_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_grocery_store_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_lodging_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_restaurant_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_restaurant_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_cafe_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_cafe_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_bar_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_bar_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_gas_station_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_gas_station_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_pharmacy_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_pharmacy_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_bank_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_bank_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_shopping_center_distance_m",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "nearest_shopping_center_name",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "poi_count_1km",
+"source": "OVERTURE_PLACES",
+"api_available": true
+},
+{
+"name": "primary_building_height_m",
+"source": "OVERTURE_BUILDINGS",
+"api_available": true
+},
+{
+"name": "primary_building_num_floors",
+"source": "OVERTURE_BUILDINGS",
+"api_available": true
+},
+{
+"name": "primary_building_footprint_sqm",
+"source": "OVERTURE_BUILDINGS",
+"api_available": true
+},
+{
+"name": "primary_building_overture_class",
+"source": "OVERTURE_BUILDINGS",
+"api_available": true
+},
+{
+"name": "nearest_power_plant_name",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_power_plant_distance_m",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_power_plant_primary_fuel",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_power_plant_capacity_mw",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_power_plant_operator",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_power_plant_technology",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_power_plant_sector",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_transmission_line_distance_m",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_transmission_line_voltage_kv",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_transmission_line_voltage_class",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_transmission_line_voltage_basis",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_transmission_line_status",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_transmission_line_owner",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "max_transmission_line_voltage_kv_within_radius",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "max_transmission_line_voltage_class_within_radius",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "transmission_lines_within_radius_count",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "nearest_gas_pipeline_distance_m",
+"source": "EIA_ATLAS",
+"api_available": true
+},
+{
+"name": "within_water_service_area",
+"source": "EPA_CWS_SERVICE_AREAS",
+"api_available": true
+},
+{
+"name": "water_system_name",
+"source": "EPA_CWS_SERVICE_AREAS",
+"api_available": true
+},
+{
+"name": "nearest_water_service_area_distance_m",
+"source": "EPA_CWS_SERVICE_AREAS",
+"api_available": true
+},
+{
+"name": "water_service_area_provenance",
+"source": "EPA_CWS_SERVICE_AREAS",
+"api_available": true
+},
+{
+"name": "public_water_system_population_served",
+"source": "EPA_CWS_SERVICE_AREAS",
+"api_available": true
+},
+{
+"name": "within_sewer_service_area",
+"source": "EPA_SEWERSHEDS",
+"api_available": true
+},
+{
+"name": "sewer_service_area_provider",
+"source": "EPA_SEWERSHEDS",
+"api_available": true
+},
+{
+"name": "sewer_service_area_provenance",
+"source": "EPA_SEWERSHEDS",
+"api_available": true
+},
+{
+"name": "nearest_sewer_service_area_distance_m",
+"source": "EPA_SEWERSHEDS",
+"api_available": true
+},
+{
+"name": "nearest_wastewater_plant_distance_m",
+"source": "EPA_CWNS",
+"api_available": true
+},
+{
+"name": "nearest_wastewater_plant_name",
+"source": "EPA_CWNS",
+"api_available": true
+},
+{
+"name": "nearest_wastewater_plant_population_served",
+"source": "EPA_CWNS",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_line_distance_m",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_line_voltage_kv",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_line_circuits",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_line_operator",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_line_lifecycle",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_substation_distance_m",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_substation_name",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_substation_max_voltage_kv",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_substation_operator",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_substation_type",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_transformer_distance_m",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_transformer_primary_voltage_kv",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_transformer_secondary_voltage_kv",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_osm_transmission_transformer_rating_mva",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "osm_grid_search_radius_m",
+"source": "OPENINFRAMAP_OSM",
+"api_available": true
+},
+{
+"name": "nearest_major_road_name",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "nearest_major_road_distance_m",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "nearest_major_road_class",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "nearest_road_distance_m",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "nearest_road_name",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "nearest_road_class",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "nearest_road_surface",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "roads_within_500m_count",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "total_road_length_within_500m_m",
+"source": "OVERTURE_TRANSPORTATION",
+"api_available": true
+},
+{
+"name": "avg_retail_electricity_price_industrial_usd_per_kwh",
+"source": "EIA_ELEC_SALES_REVENUE_PRICE",
+"api_available": true
+},
+{
+"name": "natural_gas_citygate_price_usd_per_mcf",
+"source": "EIA_NATURAL_GAS_PRICES",
+"api_available": true
+},
+{
+"name": "natural_gas_industrial_price_usd_per_mcf",
+"source": "EIA_NATURAL_GAS_PRICES",
+"api_available": true
+},
+{
+"name": "fiber_provider_count",
+"source": "FCC_BDC_FIXED",
+"api_available": false
+},
+{
+"name": "fiber_broadband_available",
+"source": "FCC_BDC_FIXED",
+"api_available": false
+},
+{
+"name": "mobile_5g_coverage_class",
+"source": "FCC_BDC_MOBILE",
+"api_available": false
+},
+{
+"name": "bedrock_depth_cm",
+"source": "PELLETIER_DTB",
+"api_available": true
+},
+{
+"name": "mean_annual_snow_cover_days",
+"source": "NSIDC_MODIS_SNOW_COVER_DURATION",
+"api_available": true
+},
+{
+"name": "wind_least_cost_interconnect_distance_m",
+"source": "NREL_REV_LANDBASED_WIND_SC_2024",
+"api_available": true
+},
+{
+"name": "wind_capacity_factor_pct",
+"source": "NREL_REV_LANDBASED_WIND_SC_2024",
+"api_available": true
+},
+{
+"name": "mean_wind_speed_100m_ms",
+"source": "NREL_WIND_TOOLKIT",
+"api_available": true
+},
+{
+"name": "mean_wind_speed_120m_ms",
+"source": "NREL_WIND_TOOLKIT",
+"api_available": true
+},
+{
+"name": "mean_wind_speed_160m_ms",
+"source": "NREL_WIND_TOOLKIT",
+"api_available": true
+},
+{
+"name": "wind_power_density_100m_wm2",
+"source": "NREL_WIND_TOOLKIT",
+"api_available": true
+},
+{
+"name": "wind_shear_exponent_100_160m",
+"source": "NREL_WIND_TOOLKIT",
+"api_available": true
+},
+{
+"name": "weibull_k_100m",
+"source": "NREL_WIND_TOOLKIT",
+"api_available": true
+},
+{
+"name": "prevailing_wind_direction_100m_cardinal",
+"source": "NREL_WIND_TOOLKIT",
+"api_available": true
+},
+{
+"name": "surface_albedo_annual",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "design_wet_bulb_temperature_0_4pct_degc",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "mean_annual_relative_humidity_pct",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "dhi_annual_kwh_m2_day",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "diffuse_fraction_annual",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "clearsky_ghi_annual_kwh_m2_day",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "clearsky_dni_annual_kwh_m2_day",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "clear_sky_ratio_ghi_annual",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "dni_clear_sky_ratio_annual",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "aerosol_optical_depth_annual_mean",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "precipitable_water_annual_mean_cm",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "near_surface_wind_speed_annual_mean_ms",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "free_cooling_hours_per_year_15c",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "free_cooling_hours_per_year_10c",
+"source": "NREL_NSRDB_GOES_TMY_V4",
+"api_available": true
+},
+{
+"name": "ghi_annual_kwh_m2_day",
+"source": "NREL_SOLAR_RESOURCE_V1",
+"api_available": true
+},
+{
+"name": "dni_annual_kwh_m2_day",
+"source": "NREL_SOLAR_RESOURCE_V1",
+"api_available": true
+},
+{
+"name": "pv_capacity_factor_pct",
+"source": "NREL_PVWATTS_V8",
+"api_available": true
+},
+{
+"name": "pv_specific_yield_kwh_per_kw",
+"source": "NREL_PVWATTS_V8",
+"api_available": true
+},
+{
+"name": "poa_irradiance_optimal_tilt_kwh_m2_yr",
+"source": "NREL_PVWATTS_V8",
+"api_available": true
+},
+{
+"name": "optimal_fixed_tilt_degrees",
+"source": "NREL_PVWATTS_V8",
+"api_available": true
+},
+{
+"name": "in_air_quality_nonattainment",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_nonattainment_pollutants",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_worst_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "in_air_quality_maintenance",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_maintenance_pollutants",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_ozone_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_ozone_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_pm25_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_pm25_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_pm10_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_pm10_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_co_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_co_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_so2_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_so2_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_no2_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_no2_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_lead_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_lead_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_pm25_24hr_2006_status",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_pm25_24hr_2006_classification",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "air_quality_pm25_status_all_standards",
+"source": "EPA_GREEN_BOOK",
+"api_available": true
+},
+{
+"name": "nearest_hazardous_facility_distance_m",
+"source": "EPA_FRS_RMP",
+"api_available": true
+},
+{
+"name": "nearest_hazardous_facility_name",
+"source": "EPA_FRS_RMP",
+"api_available": true
+},
+{
+"name": "nearest_brownfield_distance_m",
+"source": "EPA_ACRES",
+"api_available": true
+},
+{
+"name": "brownfields_within_radius_count",
+"source": "EPA_ACRES",
+"api_available": true
+},
+{
+"name": "nearest_superfund_distance_m",
+"source": "EPA_SEMS",
+"api_available": true
+},
+{
+"name": "superfund_sites_within_radius_count",
+"source": "EPA_SEMS",
+"api_available": true
+},
+{
+"name": "nearest_rcra_tsd_distance_m",
+"source": "EPA_RCRA_TSD",
+"api_available": true
+},
+{
+"name": "rcra_tsd_facilities_within_radius_count",
+"source": "EPA_RCRA_TSD",
+"api_available": true
+},
+{
+"name": "nearest_class_i_area_distance_m",
+"source": "EPA_CLASS_I_AREAS",
+"api_available": true
+},
+{
+"name": "nearest_class_i_area_name",
+"source": "EPA_CLASS_I_AREAS",
+"api_available": true
+},
+{
+"name": "nearest_class_i_area_agency",
+"source": "EPA_CLASS_I_AREAS",
+"api_available": true
+},
+{
+"name": "nearest_ust_facility_distance_m",
+"source": "EPA_UST_FINDER_FACILITIES",
+"api_available": true
+},
+{
+"name": "ust_facilities_within_1km_count",
+"source": "EPA_UST_FINDER_FACILITIES",
+"api_available": true
+},
+{
+"name": "open_lust_sites_within_1km_count",
+"source": "EPA_UST_FINDER_RELEASES",
+"api_available": true
+},
+{
+"name": "pm25_annual_design_value_ugm3",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "pm25_annual_monitor_aqs_site_id",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "pm25_annual_monitor_distance_m",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "pm25_24hr_design_value_ugm3",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "pm25_24hr_monitor_aqs_site_id",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "pm25_24hr_monitor_distance_m",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "no2_annual_design_value_ppb",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "no2_annual_monitor_aqs_site_id",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "no2_annual_monitor_distance_m",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "no2_1hr_design_value_ppb",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "no2_1hr_monitor_aqs_site_id",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "no2_1hr_monitor_distance_m",
+"source": "EPA_AQS_DESIGN_VALUES",
+"api_available": true
+},
+{
+"name": "county_population",
+"source": "CENSUS_PEP",
+"api_available": true
+},
+{
+"name": "county_population_growth_1yr_pct",
+"source": "CENSUS_PEP",
+"api_available": true
+},
+{
+"name": "county_net_domestic_migration",
+"source": "CENSUS_PEP",
+"api_available": true
+},
+{
+"name": "county_building_permits_total_annual",
+"source": "CENSUS_BPS",
+"api_available": true
+},
+{
+"name": "county_building_permits_sf_annual",
+"source": "CENSUS_BPS",
+"api_available": true
+},
+{
+"name": "county_building_permits_yoy_pct",
+"source": "CENSUS_BPS",
+"api_available": true
+},
+{
+"name": "county_employment_total",
+"source": "BLS_QCEW",
+"api_available": true
+},
+{
+"name": "county_employment_yoy_pct",
+"source": "BLS_QCEW",
+"api_available": true
+},
+{
+"name": "county_median_household_income",
+"source": "CENSUS_ACS",
+"api_available": true
+},
+{
+"name": "tract_civilian_labor_force",
+"source": "CENSUS_TRACT_WORKFORCE",
+"api_available": true
+},
+{
+"name": "tract_population",
+"source": "CENSUS_TRACT_WORKFORCE",
+"api_available": true
+},
+{
+"name": "housing_units_within_1km",
+"source": "CENSUS_TIGERWEB",
+"api_available": true
+},
+{
+"name": "housing_units_density_per_km2",
+"source": "CENSUS_TIGERWEB",
+"api_available": true
+},
+{
+"name": "intersects_protected_area",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "protected_area_name",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "protected_area_gap_status",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "protected_area_designation",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "protected_area_manager",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "protected_area_public_access",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "intersects_conservation_easement",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "easement_holder",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "easement_type",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "easement_purpose",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "easement_acres",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "easement_year_established",
+"source": "PAD_US",
+"api_available": true
+},
+{
+"name": "intersects_critical_habitat",
+"source": "USFWS_CRITHAB",
+"api_available": true
+},
+{
+"name": "critical_habitat_status",
+"source": "USFWS_CRITHAB",
+"api_available": true
+},
+{
+"name": "critical_habitat_species",
+"source": "USFWS_CRITHAB",
+"api_available": true
+},
+{
+"name": "critical_habitat_listing_status",
+"source": "USFWS_CRITHAB",
+"api_available": true
+},
+{
+"name": "nearest_wind_turbine_distance_m",
+"source": "USWTDB",
+"api_available": true
+},
+{
+"name": "nearest_wind_turbine_hub_height_m",
+"source": "USWTDB",
+"api_available": true
+},
+{
+"name": "nearest_wind_turbine_total_height_m",
+"source": "USWTDB",
+"api_available": true
+},
+{
+"name": "nearest_wind_project_capacity_mw",
+"source": "USWTDB",
+"api_available": true
+},
+{
+"name": "nearest_utility_solar_facility_distance_m",
+"source": "USPVDB",
+"api_available": true
+},
+{
+"name": "nearest_utility_solar_facility_capacity_mw",
+"source": "USPVDB",
+"api_available": true
+},
+{
+"name": "nearest_rail_line_distance_m",
+"source": "BTS_RAIL",
+"api_available": true
+},
+{
+"name": "nearest_long_haul_rail_corridor_distance_m",
+"source": "BTS_RAIL",
+"api_available": true
+},
+{
+"name": "nearest_airport_name",
+"source": "FAA_NASR",
+"api_available": true
+},
+{
+"name": "nearest_airport_distance_m",
+"source": "FAA_NASR",
+"api_available": true
+},
+{
+"name": "nearest_port_name",
+"source": "BTS_PORTS",
+"api_available": true
+},
+{
+"name": "nearest_usgs_gage_id",
+"source": "USGS_NWIS_OGC",
+"api_available": true
+},
+{
+"name": "nearest_usgs_gage_name",
+"source": "USGS_NWIS_OGC",
+"api_available": true
+},
+{
+"name": "nearest_usgs_gage_distance_m",
+"source": "USGS_NWIS_OGC",
+"api_available": true
+},
+{
+"name": "nearest_usgs_gage_daily_discharge_cfs",
+"source": "USGS_NWIS_OGC",
+"api_available": true
+},
+{
+"name": "nearest_groundwater_well_depth_to_water_m",
+"source": "USGS_NWIS_OGC",
+"api_available": true
+},
+{
+"name": "nearest_substation_distance_m",
+"source": "EIA_POWER",
+"api_available": true
+},
+{
+"name": "nearest_substation_max_voltage_kv",
+"source": "EIA_POWER",
+"api_available": true
+},
+{
+"name": "nearest_substation_status",
+"source": "EIA_POWER",
+"api_available": true
+},
+{
+"name": "substations_within_radius_count",
+"source": "EIA_POWER",
+"api_available": true
+},
+{
+"name": "substations_radius_m",
+"source": "EIA_POWER",
+"api_available": true
+},
+{
+"name": "electric_utility_service_territory",
+"source": "EIA_POWER",
+"api_available": true
+},
+{
+"name": "electric_utility_ownership_type",
+"source": "EIA_POWER",
+"api_available": true
+},
+{
+"name": "iso_rto",
+"source": "HIFLD_ISO_RTO",
+"api_available": true
+},
+{
+"name": "nearest_gas_compressor_distance_m",
+"source": "EIA_GAS_INFRASTRUCTURE",
+"api_available": true
+},
+{
+"name": "nearest_gas_storage_distance_m",
+"source": "EIA_GAS_INFRASTRUCTURE",
+"api_available": true
+},
+{
+"name": "nearest_lng_terminal_distance_m",
+"source": "EIA_GAS_INFRASTRUCTURE",
+"api_available": true
+},
+{
+"name": "nearest_gas_pipeline_operator",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_gas_pipeline_type",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "gas_pipelines_within_radius_count",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_petroleum_pipeline_distance_m",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_petroleum_pipeline_operator",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_petroleum_pipeline_product",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "petroleum_pipelines_within_radius_count",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "pipelines_radius_m",
+"source": "EIA_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_interstate_gas_pipeline_distance_m",
+"source": "HIFLD_GAS_TRANSMISSION_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_interstate_gas_pipeline_operator",
+"source": "HIFLD_GAS_TRANSMISSION_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_gas_transmission_pipeline_distance_m",
+"source": "HIFLD_GAS_TRANSMISSION_PIPELINES",
+"api_available": true
+},
+{
+"name": "nearest_submarine_cable_distance_m",
+"source": "NOAA_MARINECADASTRE",
+"api_available": true
+},
+{
+"name": "nearest_submarine_cable_name",
+"source": "NOAA_MARINECADASTRE",
+"api_available": true
+},
+{
+"name": "mean_annual_dry_bulb_temperature_degc",
+"source": "NOAA_NCEI_NORMALS_GRIDDED",
+"api_available": true
+},
+{
+"name": "annual_precipitation_normal_mm",
+"source": "NOAA_NCEI_NORMALS_GRIDDED",
+"api_available": true
+},
+{
+"name": "days_above_32c_annual_count",
+"source": "NOAA_NCEI_NCLIMGRID_DAILY",
+"api_available": true
+},
+{
+"name": "days_with_min_temp_below_0c_annual_avg",
+"source": "NOAA_NCEI_NCLIMGRID_DAILY",
+"api_available": true
+},
+{
+"name": "golden_eagle_nest_density_index",
+"source": "USFWS_GOEA_RND",
+"api_available": true
+},
+{
+"name": "landslide_susceptibility_index",
+"source": "USGS_LANDSLIDE_SUSCEPTIBILITY",
+"api_available": true
+},
+{
+"name": "nearest_antenna_structure_distance_m",
+"source": "FCC_ASR",
+"api_available": true
+},
+{
+"name": "nearest_antenna_structure_height_m",
+"source": "FCC_ASR",
+"api_available": true
+},
+{
+"name": "nearest_antenna_structure_type",
+"source": "FCC_ASR",
+"api_available": true
+},
+{
+"name": "nearest_antenna_structure_owner",
+"source": "FCC_ASR",
+"api_available": true
+},
+{
+"name": "antenna_structures_within_500m_count",
+"source": "FCC_ASR",
+"api_available": true
+},
+{
+"name": "antenna_structures_within_2km_count",
+"source": "FCC_ASR",
+"api_available": true
+},
+{
+"name": "nearest_proposed_generator_distance_m",
+"source": "EIA_860M",
+"api_available": true
+},
+{
+"name": "nearest_proposed_generator_capacity_mw",
+"source": "EIA_860M",
+"api_available": true
+},
+{
+"name": "nearest_proposed_generator_status",
+"source": "EIA_860M",
+"api_available": true
+},
+{
+"name": "nearest_proposed_generator_technology",
+"source": "EIA_860M",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_county_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_pjm_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_miso_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_ercot_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_caiso_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_spp_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_nyiso_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_isone_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_west_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "interconnection_queue_active_capacity_southeast_mw",
+"source": "LBNL_QUEUED_UP",
+"api_available": true
+},
+{
+"name": "egrid_subregion",
+"source": "EPA_EGRID",
+"api_available": true
+},
+{
+"name": "egrid_co2_output_rate_kg_per_mwh",
+"source": "EPA_EGRID",
+"api_available": true
+},
+{
+"name": "seismic_pga_2pct_50yr_g",
+"source": "USGS_NSHM",
+"api_available": true
+},
+{
+"name": "nearest_documented_orphaned_well_distance_m",
+"source": "USGS_ORPHANED_WELLS",
+"api_available": true
+},
+{
+"name": "documented_orphaned_wells_within_1km_count",
+"source": "USGS_ORPHANED_WELLS",
+"api_available": true
+},
+{
+"name": "in_shale_play",
+"source": "EIA_SHALE_PLAYS",
+"api_available": true
+},
+{
+"name": "nearest_shale_play_name",
+"source": "EIA_SHALE_PLAYS",
+"api_available": true
+},
+{
+"name": "sedimentary_basin_name",
+"source": "USGS_SEDIMENTARY_BASINS",
+"api_available": true
+},
+{
+"name": "nearest_repowering_site_distance_m",
+"source": "EPA_REPOWERING",
+"api_available": true
+},
+{
+"name": "air_district_name",
+"source": "CARB_AIR_DISTRICTS",
+"api_available": true
+},
+{
+"name": "in_opportunity_zone",
+"source": "HUD_OPPORTUNITY_ZONES",
+"api_available": true
+},
+{
+"name": "opportunity_zone_tract_geoid",
+"source": "HUD_OPPORTUNITY_ZONES",
+"api_available": true
+},
+{
+"name": "special_use_airspace_type",
+"source": "FAA_SUA",
+"api_available": true
+},
+{
+"name": "surface_management_agency",
+"source": "BLM_SMA",
+"api_available": true
+},
+{
+"name": "nearest_urban_area_distance_m",
+"source": "CENSUS_TIGER_URBAN",
+"api_available": true
+},
+{
+"name": "drought_category",
+"source": "USDM_CURRENT",
+"api_available": true
+},
+{
+"name": "county_hpi_yoy_pct",
+"source": "FHFA_HPI",
+"api_available": true
+},
+{
+"name": "huc_12_name",
+"source": "USGS_WBD",
+"api_available": true
+},
+{
+"name": "huc12_thermoelectric_consumptive_use_m3_per_day",
+"source": "USGS_THERMOELECTRIC_WATER_USE",
+"api_available": true
+},
+{
+"name": "surface_water_supply_use_index_huc12",
+"source": "USGS_IWAA_WATER_BUDGET",
+"api_available": true
+},
+{
+"name": "domestic_well_households_per_km2",
+"source": "USGS_SELF_SUPPLIED_HOUSEHOLDS",
+"api_available": true
+},
+{
+"name": "domestic_well_household_density_class",
+"source": "USGS_SELF_SUPPLIED_HOUSEHOLDS",
+"api_available": true
+},
+{
+"name": "blm_solar_application_land_status",
+"source": "BLM_SOLAR_PEIS_2024",
+"api_available": true
+},
+{
+"name": "nearest_public_water_system_name",
+"source": "EPA_SDWIS",
+"api_available": true
+},
+{
+"name": "nearest_bridge_name",
+"source": "FHWA_NBI",
+"api_available": true
+},
+{
+"name": "coast_distance_m",
+"source": "NOAA_CUSP",
+"api_available": true
+},
+{
+"name": "open_ocean_distance_m",
+"source": "NATURAL_EARTH_OCEAN",
+"api_available": true
+},
+{
+"name": "ndvi_current",
+"source": "SENTINEL2_NDVI",
+"api_available": true
+},
+{
+"name": "ndvi_change_5y",
+"source": "SENTINEL2_NDVI",
+"api_available": true
+},
+{
+"name": "grid_price_usd_per_mwh",
+"source": "ISOPLETH_MODELED_ENERGY_COST",
+"api_available": true
+},
+{
+"name": "estimated_annual_power_cost_usd_per_mw",
+"source": "ISOPLETH_MODELED_ENERGY_COST",
+"api_available": true
+},
+{
+"name": "modeled_onsite_gas_generation_cost_usd_per_mwh",
+"source": "ISOPLETH_MODELED_ENERGY_COST",
+"api_available": true
+},
+{
+"name": "btm_gas_candidacy_flag",
+"source": "ISOPLETH_DERIVED_SITING",
+"api_available": true
+},
+{
+"name": "grading_difficulty_class",
+"source": "ISOPLETH_DERIVED_SITING",
+"api_available": true
+},
+{
+"name": "residential_context_class_1km",
+"source": "ISOPLETH_DERIVED_SITING",
+"api_available": true
+},
+{
+"name": "transmission_redundancy_flag",
+"source": "ISOPLETH_DERIVED_SITING",
+"api_available": true
+},
+{
+"name": "near_epa_repowering_site",
+"source": "ISOPLETH_DERIVED_SITING",
+"api_available": true
+},
+{
+"name": "tax_incentive_stack",
+"source": "ISOPLETH_DERIVED_SITING",
+"api_available": true
+},
+{
+"name": "nearest_urban_area_rtt_floor_ms",
+"source": "ISOPLETH_DERIVED_SITING",
+"api_available": true
+}
+]
