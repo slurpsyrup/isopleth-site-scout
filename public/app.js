@@ -1,5 +1,6 @@
 // Site Scout front end. Plain ES modules, no build step. Leaflet is loaded as a global from /vendor.
 import { GROUPS, HEADLINES, PRESETS } from "./fields.js";
+import { CHECK_THE_LAND, ctlUrl, showCtl } from "./partner.js";
 import { formatValue, missingNote } from "./format.js";
 import { sourceLink } from "./sources.js";
 import { parseCoords, formatAt, parseAt, round5, inEnvelope } from "./coords.js";
@@ -178,6 +179,7 @@ async function select(lat0, lng0, opts = {}) {
   }
   state.data = body;
   renderResult(body, cache, opts.label);
+  renderCtl(showCtl(r.headers.get("x-scout-ctl"), body));
 }
 
 /* ---------- Result ---------- */
@@ -216,6 +218,16 @@ function srcHtml(f) {
   const s = sourceLink(f.source, f.source_url);
   const name = esc(f.attribution || s.name);
   return `<span class="src">Source: ${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${name}</a>` : name}</span>`;
+}
+
+function renderCtl(on) {
+  const a = $("ctl");
+  if (!a) return;
+  a.hidden = !on;
+  if (!on) return;
+  $("ctl-k").textContent = CHECK_THE_LAND.kicker;
+  $("ctl-t").textContent = CHECK_THE_LAND.text;
+  a.href = ctlUrl(state.lat, state.lng);
 }
 
 function renderResult(body, cache, label) {
@@ -355,6 +367,7 @@ function init() {
   });
   $("signup").addEventListener("click", () => track("signup_click", { from: "header" }));
   $("fork").addEventListener("click", () => track("fork_click", { from: "header" }));
+  $("ctl")?.addEventListener("click", () => track("ctl_click", { from: "panel" }));
 
   const u = new URL(location.href);
   const at = parseAt(u.searchParams.get("at"));

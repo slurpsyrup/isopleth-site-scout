@@ -108,3 +108,22 @@ test("index.html pre-renders the same presets as fields.js", async () => {
   const ids = [...html.matchAll(/class="preset" type="button" data-id="([^"]+)"/g)].map((m) => m[1]);
   assert.deepEqual(ids, PRESETS.map((p) => p.id));
 });
+
+test("the Check the Land link carries the point and the showcase UTM tags, and shows only for U.S. points", async () => {
+  const { ctlUrl, showCtl } = await import("../public/partner.js");
+  const u = new URL(ctlUrl(32.2, -101.45));
+  assert.equal(u.origin + u.pathname, "https://checktheland.com/check/");
+  assert.deepEqual(Object.fromEntries(u.searchParams), { lat: "32.20000", lng: "-101.45000", utm_source: "sitescout", utm_medium: "referral", utm_campaign: "showcase" });
+  const us = { fields: { political_region: { status: "ok", value: "Texas" } } };
+  assert.equal(showCtl("on", us), true);
+  assert.equal(showCtl("off", us), false);
+  assert.equal(showCtl(null, us), false);
+  assert.equal(showCtl("on", { fields: { political_region: { status: "absent", value: null } } }), false);
+  const html = readFileSync(new URL("../public/index.html", import.meta.url), "utf8");
+  assert.match(html, /<a id="ctl"[^>]*hidden>/);
+});
+
+test("the template ships with the partner link off", () => {
+  const w = readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8");
+  assert.match(w, /"CHECK_THE_LAND_CTA": "off"/);
+});

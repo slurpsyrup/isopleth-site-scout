@@ -208,3 +208,17 @@ test("inUSState reads the Census States layer", async () => {
   mockFetch({ land: "error" });
   assert.equal(await inUSState(26, -90), null);
 });
+
+test("the Check the Land flag rides on 200 point responses only, set per deploy and never cached", async () => {
+  mockFetch();
+  const e = env({ CHECK_THE_LAND_CTA: "on" }), c = ctx();
+  const r1 = await worker.fetch(req("/api/point?lat=32.2&lng=-101.45"), e, c);
+  await c.done();
+  assert.equal(r1.headers.get("x-scout-ctl"), "on");
+  const kvHit = await worker.fetch(req("/api/point?lat=32.2&lng=-101.45"), { ...e, CHECK_THE_LAND_CTA: undefined }, ctx());
+  assert.equal(kvHit.headers.get("x-scout-cache"), "kv");
+  assert.equal(kvHit.headers.get("x-scout-ctl"), "off");
+  const out = await worker.fetch(req("/api/point?lat=48.85&lng=2.35"), e, ctx());
+  assert.equal(out.status, 422);
+  assert.equal(out.headers.get("x-scout-ctl"), null);
+});
