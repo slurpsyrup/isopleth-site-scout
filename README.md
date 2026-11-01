@@ -12,6 +12,7 @@ Site Scout is a working showcase and a starter you can fork. It is a single Clou
 
 - **Three ways in.** Click the map, search an address (free Census geocoding), or paste `lat, lng`.
 - **Every value is sourced.** Each fact links to the agency dataset it came from: FEMA, USDA, USGS, NREL, EIA, HIFLD and others.
+- **FEMA disaster history from OpenFEMA.** A second card shows the county's federal disaster declarations (count since records began, the last 10 years, the most recent and the most common types) from FEMA's free [OpenFEMA API](https://www.fema.gov/about/reports-and-data/openfema). It needs no key and spends no Isopleth lookups, and it shows how to mix your own public-data calls into the template.
 - **See the API call.** One toggle shows the exact request as cURL, Python or Node, plus the raw JSON response, ready to copy.
 - **Shareable.** Every point has its own URL, like [`?at=32.20000,-101.45000`](https://scout.isopleth.dev/?at=32.20000,-101.45000&z=11).
 - **Mobile first.** A bottom-sheet panel on phones and a side panel on desktop. Lighthouse mobile scores are 90+ in every category.
@@ -57,7 +58,7 @@ npm run deploy
 Browser ── static files (index.html, app.js, app.css, Leaflet) ──────────── Workers Static Assets (free, no Worker run)
    │
    ├─ GET /api/point?lat&lng ─┐
-   └─ GET /api/geocode?q ─────┤   Worker (src/worker.js)
+   ├─ GET /api/geocode?q ─────┤   Worker (src/worker.js)
                               │   1. Round the point to 5 decimals (~1 m)
                               │   2. Edge cache  (Cache API, per location)  ── hit → done, 0 lookups
                               │   3. KV cache    (global, 7 days)           ── hit → done, 0 lookups
@@ -66,16 +67,23 @@ Browser ── static files (index.html, app.js, app.css, Leaflet) ────�
                               │   6. Census "is this in a state?" check     ── no  → 422, 0 lookups
                               └─► 7. POST https://api.isopleth.dev/v1/fetch   (Authorization: Bearer ISOPLETH_KEY)
                                      1 lookup for up to 50 fields → cached at 2 and 3
+
+   └─ GET /api/disasters?lat&lng   Worker (src/fema.js), no key, no Isopleth lookups
+                                   1. Edge cache per point (1 day)  2. Per-IP limit (20 new points a minute)
+                                   3. Census geocoder → county FIPS  4. KV cache per county (1 day)
+                                   5. GET https://www.fema.gov/api/open/v2/DisasterDeclarationsSummaries
+                                      ?$filter=fipsStateCode eq '48' and fipsCountyCode eq '201'  → summarized
 ```
 
 | Piece | Where | Notes |
 | --- | --- | --- |
 | Front end | `public/` | Plain ES modules, no framework and no build step. Leaflet 1.9 is vendored in `public/vendor/`. |
-| Worker | `src/worker.js`, `src/lib.js` | Has only two read-only routes. The key never reaches the browser. |
+| Worker | `src/worker.js`, `src/lib.js`, `src/fema.js` | Has only three read-only routes. The key never reaches the browser. |
+| Disaster history | `src/fema.js` | FEMA [OpenFEMA Disaster Declarations Summaries v2](https://www.fema.gov/openfema-data-page/disaster-declarations-summaries-v2), public domain, no key. The card shows the retrieval time and the citation wording FEMA requires in its [terms](https://www.fema.gov/about/openfema/terms-conditions); keep both if you change the card. Counts county-designated declarations; statewide-only ones are not counted. Connecticut is skipped because Census now uses planning regions while OpenFEMA uses the former counties. Remove the route in `src/worker.js` and `loadDisasters` in `public/app.js` if you don't want it. |
 | Fields | `public/fields.js` | The single list both the UI and the Worker read. |
 | Basemap | [USGS The National Map](https://www.usgs.gov/programs/national-geospatial-program/national-map) | Public-domain topo and imagery tiles. No key needed. |
 | Geocoding | Isopleth `/v1/geocode` | Backed by the U.S. Census geocoder. Free, and results are not stored. |
-| Limits | `wrangler.jsonc` → `ratelimits` | Defaults: 6 new points a minute and 3 per 10 s per IP, 20 searches a minute per IP, and 15 new points a minute per Cloudflare location overall. Cache hits are never limited. |
+| Limits | `wrangler.jsonc` → `ratelimits` | Defaults: 6 new points a minute and 3 per 10 s per IP, 20 searches a minute per IP, and 15 new points a minute per Cloudflare location overall. The OpenFEMA card allows 20 new points a minute per IP (`DISASTER_LIMITER`). Cache hits are never limited. |
 | Analytics | `public/analytics.js` | Cookie-less Umami, counting only on scout.isopleth.dev. It never sends coordinates. **Delete it in your fork** (and its `<script>` tag), or point it at your own site. |
 
 **Cost.** Each new point uses one Isopleth lookup. Repeat visits to the same point, including shared links, are served from cache and cost nothing. On Cloudflare's free plan, static files don't count toward the 100,000 Worker requests a day; only `/api/*` calls do.

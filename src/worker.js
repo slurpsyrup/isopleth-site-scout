@@ -1,8 +1,10 @@
-// Site Scout Worker: serves the static app (Workers Static Assets) and proxies two read-only calls to Isopleth.
+// Site Scout Worker: serves the static app (Workers Static Assets) and proxies two read-only calls to Isopleth,
+// plus one free OpenFEMA call that needs no key.
 // The Isopleth key lives only here, as the ISOPLETH_KEY secret. The browser never sees it.
 //
 //   GET /api/point?lat=..&lng=..   -> POST /v1/fetch   (the fields in public/fields.js; 1 lookup per new point)
 //   GET /api/geocode?q=..          -> POST /v1/geocode (free, Census-backed)
+//   GET /api/disasters?lat=..&lng=.. -> FEMA disaster history for the county (free OpenFEMA API, see fema.js)
 //   GET /api/health                -> {ok, key_set}
 //
 // Protection, cheapest first: edge cache -> KV cache -> envelope check -> per-IP rate limits -> Census land check
@@ -10,6 +12,7 @@
 import { FIELDS } from "../public/fields.js";
 import { round5, validLatLng, inEnvelope } from "../public/coords.js";
 import { API_BASE, fetchBody } from "../public/request.js";
+import { handleDisasters } from "./fema.js";
 import { CACHE_TTL_S, PARTIAL_TTL_S, UA, OUTSIDE, pointKey, json, err, upstreamError, limited, inUSState, isOutsideUS } from "./lib.js";
 
 function edgeCache() {
@@ -129,6 +132,7 @@ export default {
         if (res.status === 200) res.headers.set("x-scout-ctl", env.CHECK_THE_LAND_CTA === "on" ? "on" : "off");
         return res;
       }
+      if (url.pathname === "/api/disasters") return handleDisasters(url, request, env, ctx);
       if (url.pathname === "/api/geocode") return handleGeocode(url, request, env);
       if (url.pathname === "/api/health") return json({ ok: true, key_set: Boolean(env.ISOPLETH_KEY), fields: FIELDS.length }, 200, { "cache-control": "no-store" });
       return err(404, "not_found", "Unknown endpoint.");
