@@ -125,7 +125,8 @@ h1{margin:0 0 10px;font-size:30px;line-height:1.12;letter-spacing:-.025em;font-w
 .hl.good b{color:var(--accent)}.hl.warn b{color:var(--amber)}.hl.bad b{color:var(--red)}
 
 .cards{display:grid;gap:10px}
-.card[data-g=grid]{--c:#ffb84d}.card[data-g=wind]{--c:#6ea8ff}.card[data-g=solar]{--c:#ffd166}.card[data-g=dc]{--c:#b69cff}.card[data-g=flood]{--c:#4cc9f0}.card[data-g=terrain]{--c:#a3b18a}.card[data-g=soil]{--c:#7bd389}.card[data-g=hazard]{--c:#ff6b81}.card[data-g=access]{--c:#8fa3ad}
+.card[data-g=grid]{--c:#ffb84d}.card[data-g=wind]{--c:#6ea8ff}.card[data-g=solar]{--c:#ffd166}.card[data-g=dc]{--c:#b69cff}.card[data-g=flood]{--c:#4cc9f0}.card[data-g=terrain]{--c:#a3b18a}.card[data-g=soil]{--c:#7bd389}.card[data-g=hazard]{--c:#ff6b81}.card[data-g=access]{--c:#8fa3ad}.card[data-g=fema]{--c:#ff9f43}
+.fema-cite{margin:.6rem 0 0;font-size:.72rem;line-height:1.35;color:var(--muted,#8a94a6)}
 .card{border:1px solid var(--line);border-radius:12px;background:rgba(10,20,27,.85)}
 .card h2{display:flex;align-items:center;gap:9px;margin:0;padding:11px 14px;font-size:13.5px;font-weight:700;border-bottom:1px solid var(--line)}
 .card h2 i{width:8px;height:8px;border-radius:2px;background:var(--c,var(--accent))}

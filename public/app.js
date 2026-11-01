@@ -180,6 +180,48 @@ async function select(lat0, lng0, opts = {}) {
   state.data = body;
   renderResult(body, cache, opts.label);
   renderCtl(showCtl(r.headers.get("x-scout-ctl"), body));
+  loadDisasters(lat, lng, seq);
+}
+
+/* ---------- FEMA disaster history (free OpenFEMA call, no key) ---------- */
+const FEMA_PAGE = "https://www.fema.gov/openfema-data-page/disaster-declarations-summaries-v2";
+const femaSrc = (url) => `<span class="src">Source: <a href="${esc(url || FEMA_PAGE)}" target="_blank" rel="noopener">FEMA OpenFEMA disaster declarations</a></span>`;
+const femaCard = (rows, count) => `<h2><i></i>FEMA disaster history<span>${count}</span></h2>${rows}`;
+
+async function loadDisasters(lat, lng, seq) {
+  const card = document.createElement("section");
+  card.className = "card";
+  card.dataset.g = "fema";
+  card.setAttribute("aria-live", "polite");
+  card.innerHTML = femaCard(`<div class="row"><span class="l">Federal disaster declarations</span><span class="v absent">Loading…</span>${femaSrc()}</div>`, "");
+  $("cards").appendChild(card);
+  let d = null, r = null;
+  try {
+    r = await fetch(`/api/disasters?lat=${lat}&lng=${lng}`);
+    d = await r.json().catch(() => null);
+  } catch { /* shown as unavailable below */ }
+  if (seq !== state.sel || !card.isConnected) return;
+  track("fema_history", { status: r ? r.status : 0 });
+  if (!r || !r.ok || !d || typeof d.total !== "number") {
+    const msg = (d && d.error && d.error.message) || "FEMA's API did not answer. Try this point again shortly.";
+    card.innerHTML = femaCard(`<div class="row"><span class="l">Federal disaster declarations</span><span class="v err">Unavailable</span><span class="note">${esc(msg)}</span>${femaSrc()}</div>`, "");
+    return;
+  }
+  const src = femaSrc(d.source && d.source.url);
+  const row = (l, val, note) => `<div class="row"><span class="l">${esc(l)}</span><span class="v">${esc(val)}</span>${note ? `<span class="note">${esc(note)}</span>` : ""}${src}</div>`;
+  const rec = d.most_recent;
+  const when = rec ? new Date(`${rec.date}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }) : "";
+  const rows = d.total === 0
+    ? `<div class="row"><span class="l">Federal disaster declarations</span><span class="v absent">None on record</span><span class="note">${esc(d.note || "")}</span>${src}</div>`
+    : [
+      row(`Declarations${d.county && d.county.name ? ` in ${d.county.name}` : ""}`, `${d.total} since ${d.first_year}`, `${d.major} were major disaster declarations.`),
+      row("In the last 10 years", String(d.last_10_years)),
+      rec ? row("Most recent", `${rec.incident_type} · ${when}`, `${rec.title} (${rec.id})`) : "",
+      d.top_types && d.top_types.length ? row("Most common", d.top_types.map((t) => `${t.type} ${t.count}`).join(", ")) : "",
+    ].join("");
+  const got = d.fetched_at ? new Date(d.fetched_at).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" }) : "";
+  const cite = `<p class="fema-cite">OpenFEMA Disaster Declarations Summaries v2${got ? `, retrieved ${esc(got)}` : ""}. ${esc((d.source && d.source.disclaimer) || "")}</p>`;
+  card.innerHTML = femaCard(rows + cite, d.total ? String(d.total) : "0");
 }
 
 /* ---------- Result ---------- */

@@ -19,7 +19,9 @@
     { "name": "BURST_LIMITER", "namespace_id": "4102", "simple": { "limit": 3, "period": 10 } },
     { "name": "GEOCODE_LIMITER", "namespace_id": "4103", "simple": { "limit": 20, "period": 60 } },
     // All visitors together (key "all"): caps new points per minute per Cloudflare location.
-    { "name": "GLOBAL_LIMITER", "namespace_id": "4104", "simple": { "limit": 15, "period": 60 } }
+    { "name": "GLOBAL_LIMITER", "namespace_id": "4104", "simple": { "limit": 15, "period": 60 } },
+    // New points per IP per minute for the free OpenFEMA disaster-history card (/api/disasters).
+    { "name": "DISASTER_LIMITER", "namespace_id": "4105", "simple": { "limit": 20, "period": 60 } }
   ],
   // Optional global cache of point results (7 days). On deploy, Wrangler creates the namespace for you.
   // Remove this block to rely on the per-colo edge cache only.
